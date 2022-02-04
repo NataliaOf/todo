@@ -9,7 +9,7 @@ export default function NavBar(){
    return(
       <>
       <Navbar collapseOnSelect expand="lg" bg="info" variant="dark">
-        <Navbar.Brand  >LOGO</Navbar.Brand>
+        <Navbar.Brand className="m-2" >LOGO</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
