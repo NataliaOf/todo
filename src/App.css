@@ -1,4 +1,11 @@
-
+*, *::after, *::before{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+ul{
+   /* padding: 0 !important; */
+}
 .link{
  color:#6c757d;
   font-size: 24px;
@@ -6,4 +13,20 @@
 }
 .link:hover{
    color: #54575a;
+}
+
+.task{
+   color: #0f5132;
+   background-color: #d1e7dd;
+   border-radius: 5px;
+   display: flex;
+    align-items: center;
+    width: auto;
+   padding: 0.5rem 1rem;
+   border: 1px solid rgba(0,0,0,.125);
+   white-space:normal;
+}
+.button{
+   cursor: pointer;
+   margin-left: auto;
 }

@@ -1,10 +1,24 @@
 import React from "react";
 import { useState } from "react";
 import { InputGroup, Button, FormControl } from "react-bootstrap";
+import {  useSelector, useDispatch } from 'react-redux'
+import { addList } from "../redax/actions/toDoList";
+
 
 export default function Form(){
 
-   const [value, setValue] = useState('')
+   const dispatch = useDispatch();
+   // const state = useSelector(state => state.viewModal);
+
+   const [value, setValue] = useState('');
+   const state = useSelector(state => state.toDoList);
+
+
+   function addTask(task){
+      dispatch(addList(task));
+      localStorage.setItem('tasks', state.list);
+      setValue('');
+   }
    return(
       <>
   
@@ -17,7 +31,7 @@ export default function Form(){
       value={value}
       onChange={(e)=>setValue(e.target.value)}
     />
-    <Button variant="outline-secondary" id="button-addon2">
+    <Button variant="outline-secondary" id="button-addon2" onClick={() =>addTask(value)}>
       Button
     </Button>
   </InputGroup>

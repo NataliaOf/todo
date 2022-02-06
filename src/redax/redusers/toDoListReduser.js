@@ -1,13 +1,18 @@
 const inishialState = {
-   list=[]
+   list: []
 };
 
 function toDoListReduser(state=inishialState, action){
-   switch (action.tipe) {
+   switch (action.type) {
       case 'ADD-LIST':
          return{
-            ...state, list: action.payload
-         }
+            ...state, ...state.list.push(action.payload) 
+         };
+
+      case 'REMOVE-LIST':
+         return{
+            ...state,...state.list.push(action.payload) 
+         }   
          
    
       default:
