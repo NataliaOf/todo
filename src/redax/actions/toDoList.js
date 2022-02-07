@@ -3,7 +3,7 @@ export const addList =(text) =>({
    payload: text
 })
 
-export const remove = (id) => ({
+export const removeList = (id) => ({
    type: 'REMOVE-LIST',
    payload: id
 })

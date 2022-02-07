@@ -11,7 +11,7 @@ function toDoListReduser(state=inishialState, action){
 
       case 'REMOVE-LIST':
          return{
-            ...state,...state.list.push(action.payload) 
+            ...state, list: action.payload
          }   
          
    
