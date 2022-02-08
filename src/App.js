@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import { Button } from 'react-bootstrap';
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar';
@@ -8,9 +8,13 @@ import Home from './pages/Home';
 import Notes from './pages/Notes';
 
 function App() {
+  
   return (
    <BrowserRouter>
+  
+      
 <Routes>
+
       <Route path="/" element={<Home />} />
       <Route path="/notes" element={<Notes/>}/>
       {/* <Route path="expenses" element={<Expenses />} /> */}

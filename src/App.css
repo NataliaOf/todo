@@ -28,5 +28,9 @@ ul{
 }
 .button{
    cursor: pointer;
+   margin: 0 5px;
+  
+}
+.rigt{
    margin-left: auto;
 }

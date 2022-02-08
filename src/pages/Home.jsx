@@ -1,35 +1,35 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "../components/Form";
 import NavBar from "../components/NavBar";
 import "../App.css";
 import { useSelector, useDispatch } from "react-redux";
-import { BsFillTrashFill} from "react-icons/bs";
+import { BsFillTrashFill, BsCheck, BsCheckAll} from "react-icons/bs"; 
 import { addList, removeList } from "../redax/actions/toDoList";
 
 export default function Home(){
    const state = useSelector(state => state.toDoList);
    const dispatch = useDispatch();
+   const [check, setCheck] = useState(false)
    
    useEffect(()=>{
-      let tasks= localStorage.getItem('tasks');
-
+      let tasksJson= localStorage.getItem('tasks');
+      console.log(tasksJson)
+     let tasks = JSON.parse( tasksJson );
+   
      
    
-      if(tasks !== null){
-         let taskArr = localStorage.getItem('tasks').split(',');
-         taskArr.forEach(task => {
+      if(tasks !== null ){
+        tasks.forEach(task => {
           dispatch(addList(task));
-          
+      
       })
-        
+      
       }
 
-      
+     
      
    },[])
 
-
-  
 
  function removList(id){
     const newState = [];
@@ -40,17 +40,25 @@ export default function Home(){
    
       
    }
+   
    dispatch(removeList(newState));
    localStorage.clear()
    if(newState.length == 0){
       
       localStorage.clear()
    }
-   else{localStorage.setItem('tasks', newState);}
+   else{localStorage.setItem('tasks', JSON.stringify(newState));}
 
   
  }
 
+ function checkList(id){
+    console.log(id)
+   //  dispatch(checkList(id))
+
+  
+ }
+console.log(state.list)
 
    return(
       <div className="container">
@@ -60,7 +68,11 @@ export default function Home(){
         <ul>
            {state.list.length == 0
              ? <h2>Задачи не обнаружены</h2>
-            : state.list.map( (task, i) => <li className="task" key={i}>{i+1}. {task} <BsFillTrashFill className="button"  onClick={()=>removList(i)}/></li> )}
+            : state.list.map( (task, i) => <li className="task" key={task.id} onClick={()=>checkList(task.id) }>
+               {check 
+               ? <BsCheckAll/>
+               : <BsCheck className="button" />}
+                {i+1}. {task.task}  <BsFillTrashFill className="button rigt"  onClick={()=>removList(i)}/></li> )}
        </ul>
        
         

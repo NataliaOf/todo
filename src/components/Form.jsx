@@ -14,9 +14,16 @@ export default function Form(){
    const state = useSelector(state => state.toDoList);
 
 
-   function addTask(task){
+   function addTask(value){
+     const task ={
+        id:Math.random().toString(36).substring(2,9),
+        task: value,
+        check: false
+     }
       dispatch(addList(task));
-      localStorage.setItem('tasks', state.list);
+     let taskJ = JSON.stringify(state.list);
+      console.log(taskJ)
+      localStorage.setItem('tasks', taskJ);
       setValue('');
    }
    return(
