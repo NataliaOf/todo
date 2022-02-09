@@ -5,6 +5,13 @@ function FormLogin(){
 
    return(
       <Form>
+         <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Your name</Form.Label>
+        <Form.Control type="text" placeholder="Your name" />
+        <Form.Text className="text-muted">
+        Your name will be your nickname
+        </Form.Text>
+      </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" />

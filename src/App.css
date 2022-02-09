@@ -34,3 +34,42 @@ ul{
 .rigt{
    margin-left: auto;
 }
+
+.notes{
+  
+   margin: 20px 0;
+  
+}
+.wraper{
+   color: #0f5132;
+   background-color: #d1e7dd;
+   padding: 0.5rem 1rem;
+   border: 1px solid rgba(0,0,0,.125);
+   border-radius: 5px;
+
+}
+.wraper-flex{
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+
+}
+.note{
+   background-color: #e8f2ee;
+   border-radius: 5px;
+   padding: 0.5rem 1rem;
+   border: 1px solid rgba(0,0,0,.125);
+   margin: 10px 0;
+}
+.note__title{
+  
+   display: flex;
+    align-items: center;
+    width: auto;
+}
+.note__text{
+ /* text-align: center; */
+}
+.day{
+ flex: 0 0 65px;
+}

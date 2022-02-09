@@ -15,20 +15,14 @@ export default function Home(){
       let tasksJson= localStorage.getItem('tasks');
       console.log(tasksJson)
      let tasks = JSON.parse( tasksJson );
-   
-     
-   
+
       if(tasks !== null ){
         tasks.forEach(task => {
           dispatch(addList(task));
-      
-      })
+       })
       
       }
-
-     
-     
-   },[])
+  },[])
 
 
  function removList(id){
@@ -43,7 +37,7 @@ export default function Home(){
    
    dispatch(removeList(newState));
    localStorage.clear()
-   if(newState.length == 0){
+   if(newState.length === 0){
       
       localStorage.clear()
    }
@@ -63,11 +57,11 @@ console.log(state.list)
    return(
       <div className="container">
         <NavBar/>
-        <h1>HOME</h1>
+        <h1>Task list</h1>
         <Form/>
         <ul>
-           {state.list.length == 0
-             ? <h2>Задачи не обнаружены</h2>
+           {state.list.length === 0
+             ? <h2 className="wraper">Задачи не обнаружены</h2>
             : state.list.map( (task, i) => <li className="task" key={task.id} onClick={()=>checkList(task.id) }>
                {check 
                ? <BsCheckAll/>
