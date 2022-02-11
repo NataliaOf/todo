@@ -1,15 +1,15 @@
-export const addNamberOfDay = (number)=>({
-   type: 'ADD-NAMBER-OF-DAY',
-   payload: number
+export const removeChallenge = ()=>({
+   type: 'REMOVE-CHALLENGE',
+
 })
 
-export const addChallenge= (text) => ({
+export const addChallenge = ( days, chalenge) => ({
    type: 'ADD-CHALLENGE',
-   payload: text
+   payload:  {days, chalenge}
 })
 
-export const addArrDays =(arr) => ({
-   type: 'ADD-ARR-DAYS',
-   payload: arr
+export const chackedToggle =(check, id) => ({
+   type: 'CHACKED-TOGGLE',
+   payload: check, id
 })
 

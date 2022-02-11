@@ -36,14 +36,14 @@ export default function NavBar(){
         </Modal.Footer>
       </Modal>
 
-      <Navbar collapseOnSelect expand="lg" bg="info" variant="dark">
+      <Navbar collapseOnSelect expand="lg" bg="success" variant="dark">
       
         <Navbar.Brand className="m-2" >LOGO</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+        <Navbar.Toggle className="m-3" aria-controls="responsive-navbar-nav"/>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-             <Nav.Link>
-                <Link className="link" to="/"><BsCardChecklist/></Link>
+             <Nav.Link >
+                <Link className="link" to="/"><BsCardChecklist /></Link>
              </Nav.Link>
              <Nav.Link>
                 <Link className="link" to="/notes"><BsCardText/></Link>

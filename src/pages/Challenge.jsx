@@ -3,17 +3,78 @@ import { Form, Button} from "react-bootstrap";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { addChallenge, chackedToggle, removeChallenge } from "../redax/actions/challenge";
+import { useSelector,useDispatch } from "react-redux";
 
 export default function Challenge(){
    const [days, setDays] = useState(0);
-   const [chalenge, setChalenge] = useState('')
-   let arrDays= [];
-   for (let index = 0; index < days; index++) {
-      arrDays[index] = index + 1;
-      
+   const [chalenge, setChalenge] = useState('');
+   const [flag, setFlag] = useState(true)
+   const [checed, setCheced] = useState([])
+   const state = useSelector(state => state.challenge);
+   const dispatch = useDispatch();
+
+   let arrDays = state.chellenge ;
+
+
+function addChallengeText(days, chalenge){
+   dispatch(addChallenge(days, chalenge));
+   setDays('');
+   setChalenge('')
+   localStorage.setItem('days',days)
+   localStorage.setItem('textChalenge',chalenge)
+   setFlag(false)
+}
+
+function removeChallengeText(){
+   
+   dispatch(removeChallenge());
+   localStorage.removeItem('days')
+   localStorage.removeItem('textChalenge')
+   localStorage.removeItem('chacked')
+   setFlag(true)
+
+}
+
+const obj={}
+
+const chalengeArr = [];
+
+ function checkedToggle(id, e, obj){
+   let chalengeNewArr = JSON.parse(localStorage.getItem('chacked'))
+  
+ const chalengeObj = {
+    'id': id,
+    check: true
+}
+
+if(chalengeNewArr!==null){
+   for (let index = 0; index < chalengeNewArr.length; index++) {
+      const element = chalengeNewArr[index];
+     if( element.id === id ) return;
+       }
+}
+ chalengeArr.push(chalengeObj)
+
+localStorage.setItem('chacked', JSON.stringify(chalengeArr))
+}
+
+ useEffect(()=>{
+   let keyNumber = localStorage.getItem('days')
+   let textChalenge = localStorage.getItem('textChalenge')
+   let chalengeNewArr = JSON.parse(localStorage.getItem('chacked'))
+   
+   
+  
+   if(keyNumber!== null ||  textChalenge!== null){
+      dispatch(addChallenge( keyNumber, textChalenge));
+      setFlag(false)
    }
-console.log(arrDays.length)
+ 
+ },[])
+ 
+ 
    return(
    
         <div className="container">
@@ -23,7 +84,6 @@ console.log(arrDays.length)
        <Container>
           <Row>
             <Col sm={2}>
-              {/* <Form.Label htmlFor="inputPassword5">How many days</Form.Label> */}
                <Form.Control 
                  type="number" 
                  value={days}
@@ -43,15 +103,28 @@ console.log(arrDays.length)
                <Row>
                   <Col sm={12}>
                      <div className="wraper">
-                        text
+                        {arrDays.chellengeText===''
+                          ?<h3>Tests not found</h3>
+                          :arrDays.chellengeText
+                        }
                      </div>
                   </Col>
                </Row>
             </Col>
             <Col sm={2}>
-               <Button variant="outline-secondary">
-                    Start
+               <Button variant="outline-secondary"
+                 onClick={()=>addChallengeText(days, chalenge)} 
+                 disabled= { flag ? '' : 'disabled'} 
+               >
+                    Add
                </Button>
+               <Button variant="outline-secondary"
+                 onClick={()=>removeChallengeText(days, chalenge)} 
+                 disabled= { flag ? 'disabled' : ''} 
+               >
+                    Remove
+               </Button>
+              
             </Col>
             
              <Col sm={4}>
@@ -63,16 +136,18 @@ console.log(arrDays.length)
                <Row>
                   <Col sm={12}>
                  <div className="wraper-flex wraper">
-                 {arrDays.length ===0
+                 {arrDays.daysObj.length ===0
                    ? <h3>Start the test</h3>
-                   :arrDays.map(day=>(
+                   :arrDays.daysObj.map((day, i)=>(
                     <div key={day} className="day">
                        <Form.Check  
                       inline
-                      label={day}
+                      label={i+1}
+                      id={day.id}
                       name="group1"
                       aria-label="option {day"
-       
+                      onChange={(e)=>checkedToggle(day.id, e, day)}
+                     //  chacked = {setCheced(checed = !checed)}
                     />
 
                     </div>
@@ -82,7 +157,7 @@ console.log(arrDays.length)
                  </div>
 
                  
-
+                 
                 
             
 

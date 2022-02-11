@@ -13,7 +13,6 @@ export default function Home(){
    
    useEffect(()=>{
       let tasksJson= localStorage.getItem('tasks');
-      console.log(tasksJson)
      let tasks = JSON.parse( tasksJson );
 
       if(tasks !== null ){
@@ -24,17 +23,10 @@ export default function Home(){
       }
   },[])
 
-
  function removList(id){
-    const newState = [];
-    for (let index = 0; index < state.list.length; index++) {
-      const element = state.list[index];
-      
-      if ( index!==id) {newState.push(element)}
-   
-      
-   }
-   
+  
+   const newState= state.list.filter(todo => todo.id !== id )
+ 
    dispatch(removeList(newState));
    localStorage.clear()
    if(newState.length === 0){
@@ -47,12 +39,13 @@ export default function Home(){
  }
 
  function checkList(id){
-    console.log(id)
+   //  console.log(id)
    //  dispatch(checkList(id))
 
   
  }
-console.log(state.list)
+ console.log(state)
+
 
    return(
       <div className="container">
@@ -66,7 +59,7 @@ console.log(state.list)
                {check 
                ? <BsCheckAll/>
                : <BsCheck className="button" />}
-                {i+1}. {task.task}  <BsFillTrashFill className="button rigt"  onClick={()=>removList(i)}/></li> )}
+                {i+1}. {task.task}  <BsFillTrashFill className="button rigt"  onClick={()=>removList(task.id)}/></li> )}
        </ul>
        
         

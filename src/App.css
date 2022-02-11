@@ -3,11 +3,16 @@
    padding: 0;
    box-sizing: border-box;
 }
+body{
+   background-color: #ecf3f0;
+}
 ul{
    padding: 0 !important;
 }
 .link{
- color:#6c757d;
+ /* color:#6c757d; */
+ color: #fff;
+ margin: 10px;
   font-size: 24px;
    text-decoration: none;
 }
@@ -67,9 +72,17 @@ ul{
     align-items: center;
     width: auto;
 }
+.calendar{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
 .note__text{
- /* text-align: center; */
+
 }
 .day{
  flex: 0 0 65px;
+}
+.btn-hover{
+cursor: pointer;
 }

@@ -6,7 +6,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
 import Notes from './pages/Notes';
 import Challenge from './pages/Challenge';
-import Calendar from './pages/Calendar';
+import CalendarPage from './pages/CalendarPage';
 
 function App() {
   
@@ -19,7 +19,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="notes" element={<Notes/>}/>
       <Route path="challenge" element={<Challenge/>} />
-      <Route path="calendar" element={<Calendar/>} />
+      <Route path="calendar" element={<CalendarPage/>} />
 
       {/* <Route path="invoices" element={<Invoices />} /> */}
     </Routes>

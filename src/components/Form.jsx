@@ -20,7 +20,6 @@ export default function Form(){
      }
       dispatch(addList(task));
      let taskJ = JSON.stringify(state.list);
-      console.log(taskJ)
       localStorage.setItem('tasks', taskJ);
       setValue('');
    }
