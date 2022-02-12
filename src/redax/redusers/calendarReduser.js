@@ -1,5 +1,5 @@
 const inishialState = {
-   calendar: ''
+   calendar: []
 }
 
 function calendarReduser(state=inishialState, action){
@@ -8,13 +8,16 @@ function calendarReduser(state=inishialState, action){
       case 'ADD-DATE':
          
          return{
-            ...state
+            ...state, ...state.calendar.push(action.payload)
+         }
+
+      case 'REMOVE-DATE':
+         return{
+            ...state, calendar: action.payload
          }
    
       default:
-         return{
-            state
-         }
+         return state
          
    }
 }

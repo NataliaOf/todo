@@ -10,12 +10,13 @@ export default function Home(){
    const state = useSelector(state => state.toDoList);
    const dispatch = useDispatch();
    const [check, setCheck] = useState(false)
+   // console.log( state.list)
    
    useEffect(()=>{
       let tasksJson= localStorage.getItem('tasks');
      let tasks = JSON.parse( tasksJson );
 
-      if(tasks !== null ){
+      if(state.list.length === 0 ){
         tasks.forEach(task => {
           dispatch(addList(task));
        })
@@ -28,10 +29,10 @@ export default function Home(){
    const newState= state.list.filter(todo => todo.id !== id )
  
    dispatch(removeList(newState));
-   localStorage.clear()
+   localStorage.removeItem('tasks')
    if(newState.length === 0){
       
-      localStorage.clear()
+      localStorage.removeItem('tasks')
    }
    else{localStorage.setItem('tasks', JSON.stringify(newState));}
 

@@ -42,7 +42,6 @@ function removNoteInBox(id){
         <h1>Notes</h1>
         <Form>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            {/* <Form.Label>Title notes</Form.Label> */}
             <Form.Control type="text" 
             placeholder="Title note"
             value={title}
