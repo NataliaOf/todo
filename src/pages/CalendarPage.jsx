@@ -47,12 +47,12 @@ function addCalendarEvent(events, data){
       dispatch(removeDate(newEventArr))
       localStorage.setItem('events', JSON.stringify(newEventArr));
    }
-console.log(calendar)
+
 
    useEffect(()=> {
      let eventObj = JSON.parse(localStorage.getItem('events'))
 
-     if(calendar.length === 0){
+     if(calendar.length === 0 && eventObj!== null){
       eventObj.map(eventDate=> dispatch(addDate(eventDate)) )
      }
 

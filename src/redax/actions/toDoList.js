@@ -8,7 +8,7 @@ export const removeList = (arr) => ({
    payload: arr
 })
 
-export const checkList = (id) =>({
+export const checkList = ( checked) =>({
    type:'CHECK-LIST',
-   payload: id
+   payload:  checked
 })

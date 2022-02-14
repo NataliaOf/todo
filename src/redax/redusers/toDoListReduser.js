@@ -5,6 +5,8 @@ const inishialState = {
 // check: false
 // id: "gc253e5"
 // task: "dddddddd"
+const a ={ ...inishialState}.list
+console.log(a)
 
 function toDoListReduser(state=inishialState, action){
    switch (action.type) {
@@ -19,10 +21,13 @@ function toDoListReduser(state=inishialState, action){
          };
          
       case 'CHECK-LIST':
-         return{...state, ...state.list.map((list)=> list.id === action.peyload 
-            ?{...state, ...state.list, check: !state.list.check}
-            :{...state}
-         )}  
+    
+   
+         return{
+            ...state, list : action.payload
+            
+         }
+         
 
            
          

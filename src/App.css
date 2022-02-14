@@ -80,9 +80,20 @@ ul{
 .note__text{
 
 }
+.note__date{
+   font-size: 14px;
+   font-weight: 600;
+}
 .day{
  flex: 0 0 65px;
 }
 .btn-hover{
 cursor: pointer;
+}
+
+.error{
+   color:red;
+}
+.logo{
+   width: 40px;
 }
