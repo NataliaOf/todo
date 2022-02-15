@@ -2,11 +2,8 @@ const inishialState = {
    list: []
 };
 
-// check: false
-// id: "gc253e5"
-// task: "dddddddd"
 const a ={ ...inishialState}.list
-console.log(a)
+
 
 function toDoListReduser(state=inishialState, action){
    switch (action.type) {

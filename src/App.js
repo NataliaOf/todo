@@ -11,11 +11,11 @@ import TitlePage from './pages/TitlePage';
 import {  useSelector, useDispatch } from 'react-redux';
 
 import RequireAuth from './hoc/RequireAuth';
+import WeatherPage from './pages/WeatherPage';
 
 
 function App() {
    const {user} =useSelector(state=>state.authorization);
-  console.log(user)
   
   return (
    <BrowserRouter>
@@ -42,6 +42,7 @@ function App() {
          <CalendarPage/>
       </RequireAuth>
       } />
+      <Route path="weather" element={<WeatherPage/> }/>
       <Route path="autorization" element={<TitlePage/>}/>
 
       {/* <Route path="invoices" element={<Invoices />} /> */}

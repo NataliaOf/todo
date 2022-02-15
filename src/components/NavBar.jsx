@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+
 import { Button, Nav, Navbar,Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../App.css"
-import { BsCardChecklist, BsCardText, BsCheck2Square, BsCalendar3} from "react-icons/bs"; 
+import { BsCardChecklist, BsCardText, BsCheck2Square, BsCalendar3,BsFillCloudSunFill} from "react-icons/bs"; 
 import { useState } from 'react';
 import FormLogin from "./FormLogin";
 import {  useSelector, useDispatch } from 'react-redux';
@@ -31,6 +31,7 @@ export default function NavBar(){
    } ;
    dispatch(remoweUser(newUsers)) 
    navigate('/autorization', { replace: true })
+   localStorage.removeItem("login")
    }
 
   
@@ -68,18 +69,21 @@ export default function NavBar(){
         <Navbar.Toggle className="m-3" aria-controls="responsive-navbar-nav"/>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-             <Nav.Link >
+             {/* <Nav.Link > */}
                 <Link className="link" to="/"><BsCardChecklist /></Link>
-             </Nav.Link>
-             <Nav.Link>
+             {/* </Nav.Link> */}
+             {/* <Nav.Link> */}
                 <Link className="link" to="/notes"><BsCardText/></Link>
-             </Nav.Link>
-             <Nav.Link>
+             {/* </Nav.Link> */}
+             {/* <Nav.Link> */}
                 <Link className="link" to="/challenge"><BsCheck2Square/></Link>
-             </Nav.Link>
-             <Nav.Link>
+             {/* </Nav.Link> */}
+             {/* <Nav.Link> */}
                 <Link className="link" to="/calendar"><BsCalendar3/></Link>
-             </Nav.Link>
+             {/* </Nav.Link> */}
+             {/* <Nav.Link> */}
+                <Link className="link" to="/weather"><BsFillCloudSunFill/></Link>
+             {/* </Nav.Link> */}
              {/* <Nav.Link>
                 <Link className="link" to="/autorization">OPEN </Link>
              </Nav.Link> */}

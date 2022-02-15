@@ -8,7 +8,7 @@ import { Col, Row } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 
 export default function Notes(){
-   console.log(useLocation())
+
 
    const [title, setTitle] = useState('');
    const [valueNotes, setValueNotes] = useState('');

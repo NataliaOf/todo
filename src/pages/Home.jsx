@@ -12,7 +12,7 @@ export default function Home(){
    const state = useSelector(state => state.toDoList);
    const dispatch = useDispatch();
    const [check, setCheck] = useState(false)
-   console.log( state.list)
+
    
    useEffect(()=>{
       let tasksJson= localStorage.getItem('tasks');
@@ -41,15 +41,11 @@ export default function Home(){
   
  }
  function checkList(id){
-   console.log(id)
    const checkedG = state.list.filter(check=> id ===check.id);
-   console.log(checkedG)
    checkedG[0].check = true; 
    const noChecked = state.list.filter(check=> id !==check.id);
-   console.log(checkedG)
-   console.log( noChecked)
+   
    const newCheck = [...checkedG, ...noChecked]
-   console.log(newCheck)
    dispatch(checkList(newCheck))
    localStorage.setItem('tasks', JSON.stringify(newCheck));
   
