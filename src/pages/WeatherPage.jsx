@@ -10,6 +10,7 @@ export default function WeatherPage(){
    const [data, setData] = useState(null);
    const [sity, setSity] = useState('Kiev');
    const [error, setError] = useState(false);
+   
    const { 
       register,
        handleSubmit, 

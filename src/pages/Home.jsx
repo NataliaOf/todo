@@ -57,10 +57,6 @@ export default function Home(){
    const newCheck = [...check, ...noChecked]
    dispatch(checkList(newCheck))
    localStorage.setItem('tasks', JSON.stringify(newCheck));
-
- 
-
- 
 }
 
 
