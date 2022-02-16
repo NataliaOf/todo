@@ -66,7 +66,7 @@ function addCalendarEvent(events, data){
    return(
    
         <div className="container">
-        <NavBar/>
+       
        <h2>Calendar</h2>
 
       

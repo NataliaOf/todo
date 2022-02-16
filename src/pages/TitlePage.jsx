@@ -42,7 +42,7 @@ export default function TitlePage(){
 
    return(
      <div className="container">
-     <NavBar />
+   
        <h2>You are not logged into your account</h2>
       
        <Row>

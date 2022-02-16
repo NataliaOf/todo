@@ -41,7 +41,7 @@ export default function WeatherPage(){
    return(
 
       <div className="container">
-         <NavBar/>
+         
       <h2>Weather</h2>
       <Row>
         <Col sm={3}>

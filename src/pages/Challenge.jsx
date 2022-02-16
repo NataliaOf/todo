@@ -78,7 +78,7 @@ localStorage.setItem('chacked', JSON.stringify(chalengeArr))
    return(
    
         <div className="container">
-        <NavBar/>
+       
        <h2>Challenge</h2>
 
        <Container>

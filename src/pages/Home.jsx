@@ -65,7 +65,7 @@ export default function Home(){
    return(
       <div className="container">
         
-        <NavBar/>
+        
         <h1>Task list</h1>
         <Row>
            <Col sm={5}>

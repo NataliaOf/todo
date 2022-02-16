@@ -74,7 +74,7 @@ else{localStorage.setItem('notes', JSON.stringify(newState));}
    return(
    
       <div className="container">
-        <NavBar/>
+       
         <h1>Notes</h1>
         <Row>
            <Col sm={5}>
