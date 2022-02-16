@@ -139,7 +139,7 @@ localStorage.setItem('chacked', JSON.stringify(chalengeArr))
                  {arrDays.daysObj.length ===0
                    ? <h3>Start the test</h3>
                    :arrDays.daysObj.map((day, i)=>(
-                    <div key={day} className="day">
+                    <div key={day.id} className="day">
                        <Form.Check  
                       inline
                       label={i+1}

@@ -6,9 +6,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { BsFillTrashFill, BsCheck, BsCheckAll} from "react-icons/bs"; 
 import { addList, removeList } from "../redax/actions/toDoList";
 import { Col, Row } from "react-bootstrap";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 export default function Home(){
+   const navigate = useNavigate();
+   const location = useLocation();
+   const fromPage = location.state?.from?.pathname || '/';
    const state = useSelector(state => state.toDoList);
    const dispatch = useDispatch();
    const [check, setCheck] = useState(false)
@@ -40,15 +44,20 @@ export default function Home(){
 
   
  }
+
  function checkList(id){
-   const checkedG = state.list.filter(check=> id ===check.id);
-   checkedG[0].check = true; 
+
+    const check = state.list.filter(item=>item.id === id )
+    check[0].check = true; 
    const noChecked = state.list.filter(check=> id !==check.id);
+
    
-   const newCheck = [...checkedG, ...noChecked]
+  
+   
+   const newCheck = [...check, ...noChecked]
    dispatch(checkList(newCheck))
    localStorage.setItem('tasks', JSON.stringify(newCheck));
-  
+
  
 
  

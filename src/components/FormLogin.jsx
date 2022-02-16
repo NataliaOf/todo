@@ -20,7 +20,7 @@ function FormLogin({setShow}){
   
   const onSubmit = (data) =>{
    //  alert(JSON.stringify(data))
-    console.log(data)
+   //  console.log(data)
     console.log(JSON.stringify(data))
     dispatch(addUser(data))
     reset()
